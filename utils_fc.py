@@ -23,9 +23,7 @@ NUMERIC_TYPES = [int,
                  np.float16, 
                  np.float32, 
                  np.float64, 
-                 np.complex64, 
-                 np.complex128, 
-                 np.complex256]
+                 np.complex64]
 
 def decimal_to_binary_list(n, length=None):
     bin_list = [int(z) for z in bin(n)[2:]]
@@ -331,7 +329,7 @@ def z_proj(v):
 
 def evaluate_fc_polynomial_through_spectral_decomposition(p, C):
     """
-    evaluate \sum_v p(v) P_v(C), which should equal p(C)
+    evaluate sum_v p(v) P_v(C), which should equal p(C)
     """
     operator = Q()
     K        = len(C)

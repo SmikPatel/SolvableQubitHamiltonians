@@ -47,7 +47,7 @@ def find_pivot_row(A, col, pivot_indices):
 
 def gauss_jordan(Amatrix):
     """
-    return rref and pivot columns of A by performing Gauss-Jordan elimination over \mathbb{C}
+    return rref and pivot columns of A by performing Gauss-Jordan elimination over mathbb{C}
     """
     A          = Amatrix.copy()
     Nrow, Ncol = A.shape
@@ -71,7 +71,7 @@ def gauss_jordan(Amatrix):
 
 def gauss_jordan_z2(Amatrix):
     """
-    obtain rref and pivot columns of A via Gauss-Jordan elimination over \mathbb{Z}_2
+    obtain rref and pivot columns of A via Gauss-Jordan elimination over mathbb{Z}_2
     this function raises an AssertionError if any of the elements of A are not 0.0 or 1.0
     """
     A = Amatrix.copy()
@@ -98,20 +98,20 @@ def gauss_jordan_z2(Amatrix):
 
 def obtain_basis_z2(v_list):
     """
-    given list of vectors over \mathbb{Z}_2 field, obtain "left-justified" basis obtained from computing rref
+    given list of vectors over mathbb{Z}_2 field, obtain "left-justified" basis obtained from computing rref
     """
-    A            = np.array(v_list, dtype=np.float128).T
+    A            = np.array(v_list, dtype=np.float64).T
     rref, pivots = gauss_jordan_z2(A)
 
     return [ A[:,i] for i in pivots ]
 
 def obtain_expansion_coefficients_z2(v_list):
     """
-    given list of vectors over \mathbb{Z}_2 field, return expansion coefficients of all vectors
+    given list of vectors over mathbb{Z}_2 field, return expansion coefficients of all vectors
     as linear combination over "left-justified" basis obtained from computing rref
     """
     Ncol         = len(v_list)
-    A            = np.array(v_list, dtype=np.float128).T
+    A            = np.array(v_list, dtype=np.float64).T
     rref, pivots = gauss_jordan_z2(A)
 
     return [ rref[:,i][:len(pivots)] for i in range(Ncol) ]

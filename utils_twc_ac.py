@@ -135,7 +135,7 @@ def solve_twc_ac_hamiltonian(H, N, first_active_qubit=0, detailed=False):
 
 def restricted_solve_twc_ac_hamiltonian(H, N):
     """
-    returns oplus_\lam SO(L_lam + 1) unitary that maps twc_ac to fc, where twc_ac has no intrinsic fc part
+    returns oplus_lam SO(L_lam + 1) unitary that maps twc_ac to fc, where twc_ac has no intrinsic fc part
     """
     Hc = copy_hamiltonian(H)
 
